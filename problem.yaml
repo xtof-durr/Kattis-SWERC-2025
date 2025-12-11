@@ -1,0 +1,5 @@
+limits:
+  memory: 1024
+validation: default
+license: "cc by-sa"
+source: "ICPC/SWERC 2025"
