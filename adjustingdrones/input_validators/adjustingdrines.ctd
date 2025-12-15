@@ -1,0 +1,7 @@
+INT(1,10000,n) NEWLINE
+REPI(i,n) 
+    INT(1, 200000, n) SPACE INT(1, n, k) NEWLINE
+    REPI(j, n, SPACE) 
+        INT(1, 2*n) 
+    END NEWLINE
+END
