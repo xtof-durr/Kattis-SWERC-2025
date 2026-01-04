@@ -1,0 +1,9 @@
+INT(1, 500000, n) SPACE 
+INT(1, 500000, q) NEWLINE
+REP(n)
+    REGEX("[a-z]")
+END NEWLINE
+REP(q)
+    INT(1, n, ell) SPACE
+    INT(ell, n, r) NEWLINE
+END

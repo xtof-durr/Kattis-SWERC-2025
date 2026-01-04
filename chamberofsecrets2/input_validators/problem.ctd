@@ -1,0 +1,10 @@
+INT(1, 100, testcases) NEWLINE
+REP(testcases)
+    INT(1, 70, n) SPACE INT(1, 70, m) NEWLINE
+    REP(n) 
+        REP(m, SPACE)
+            INT(1, n * m / 2)
+        END
+        NEWLINE
+    END 
+END

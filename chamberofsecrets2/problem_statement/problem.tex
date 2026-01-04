@@ -1,0 +1,50 @@
+\problemname{Chamber of Secrets 2}
+
+\begin{center}
+\includegraphics[width=7cm]{chamberofsecrets2-level-unlocked-wand.png}
+\\
+\emph{Image credits: Own work. Magic wand: Open Clip Art Library, public domain, via Wikimedia Commons.
+}
+\end{center}
+
+You are playing the game Henry Spotter and the Chamber of Secrets 2.
+
+You want to unlock the next level, the Chamber of Secrets. The entry door contains $n$ panels, each displaying a sequence of $m$ symbols. The product $nm$ is even. The system generates these sequences from a \textbf{secret permutation} using the following four-step process:
+
+\begin{itemize}
+\item first, it starts from a secret permutation $[p_1, p_2, \ldots, p_{nm/2}]$;
+\item then, it repeats the secret permutation by concatenating it with itself, forming the array $[b_1, b_2, \ldots, b_{nm}]$;
+\item then, it splits this array into $n$ consecutive blocks, i.e., disjoint subarrays of length $m$;
+\item then, it shuffles these blocks in arbitrary order across the panels.
+\end{itemize}
+
+You are given the final $n$ panel sequences produced by the system. The $i$-th panel shows $[a_{i,1}, a_{i,2}, \ldots, a_{i,m}]$. Your task is to recover one possible original secret permutation $[p_1, p_2, \ldots, p_{nm/2}]$. For the given input, at least one solution exists. If multiple secret permutations are valid, output any one of them.
+
+The concatenation of two arrays $[x_1, x_2, \ldots, x_{k_1}]$, $[y_1, y_2, \ldots, y_{k_2}]$ is the array $[x_1, x_2, \ldots, x_{k_1}, y_1, y_2, \ldots, y_{k_2}]$ of length $k_1 + k_2$.
+
+A permutation of length $l$ is an array consisting of $l$ distinct integers from $1$ to $l$ in arbitrary order. For example, $[2,3,1,5,4]$ is a permutation, but $[1,2,2]$ is not a permutation ($2$ appears twice in the array), and $[1,3,4]$ is also not a permutation ($l=3$ but there is $4$ in the array).
+
+
+\section*{Input}
+Each test contains multiple test cases. The first line contains the number of test cases $t$ ($1 \leq t \leq 100$). The description of the test cases follows.
+
+The first line of each test case contains two integers $n$, $m$ ($1 \le n \le 70$, $1 \leq m \leq 70$)~--- the number of panels, and the length of each displayed sequence.
+
+The $i$-th of the next $n$ lines contains $m$ integers $a_{i,1}, a_{i,2}, \ldots, a_{i,m}$ ($1 \leq a_{i,j} \leq nm/2$), representing the sequence shown on the $i$-th panel.
+
+Note that there are no constraints on the sum of $n$ and $m$ over all test cases.
+
+\section*{Output}
+For each test case, output a single line containing a secret permutation $[p_1, p_2, \ldots, p_{nm/2}]$ such that the process described above can produce the $n$ panel sequences $[a_{i,1}, a_{i,2}, \ldots, a_{i,m}]$. For the given input, at least one solution exists.
+
+
+
+
+\section*{Samples}
+
+In the first test case, one valid secret permutation is $[p_1, p_2, \ldots, p_{nm/2}] = [5, 6, 3, 4, 1, 2]$:
+\begin{itemize}
+\item the array $[b_1, b_2, \ldots, b_{nm}]$ is the concatenation of two copies of $[p_1, p_2, \ldots, p_{nm/2}] = [5, 6, 3, 4, 1, 2]$;
+\item $[b_1, b_2, \ldots, b_{nm}]$ splits into the blocks $[5, 6]$, $[3, 4]$, $[1, 2]$, $[5, 6]$, $[3, 4]$, $[1, 2]$;
+\item after shuffling, the final panel sequences $[a_{i,1}, a_{i,2}, \ldots, a_{i,m}]$ can coincide with these blocks.
+\end{itemize}

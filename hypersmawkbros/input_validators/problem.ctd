@@ -1,0 +1,4 @@
+INT(1, 30, testcases) NEWLINE
+REP(testcases)
+    INT(1, 100, n) SPACE
+END 

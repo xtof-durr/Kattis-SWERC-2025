@@ -1,0 +1,6 @@
+limits:
+  memory: 1024
+validation: default
+license: "cc by-sa"
+source: "ICPC/SWERC 2025"
+uuid: 4e64ef73-4bad-4e8d-b609-a1b814f266ea

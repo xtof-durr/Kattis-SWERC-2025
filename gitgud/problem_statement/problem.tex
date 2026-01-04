@@ -1,0 +1,69 @@
+\problemname{Git Gud}
+
+\begin{center}
+\includegraphics[width=5cm]{gitgud-NES-ROB.jpg}
+\\
+\emph{Image credits: Evan-Amos, CC BY-SA 3.0, via Wikimedia Commons}
+\end{center}
+
+You are an adventurer working for the futuristic corporation RoboCorp. Your initial skill level is an integer in the range $[1, n]$, but you don't know its exact value. Your goal is to reach a skill level of at least $n$ by completing missions for RoboCorp, but each mission costs precious robocoins.
+
+You can choose missions of any difficulty and any positive integer duration (in hours). However, the cost depends both on the new mission's length, and on how the new mission's difficulty compares to your most recent one.
+
+Let $x$ be the difficulty of your most recent mission. If you want to undertake a new mission of difficulty $y$ and duration $l$:
+
+\begin{itemize}
+\item If it is your first mission, or $y \leq x$, the cost is $l$ robocoins.
+\item If $y > x$, the cost is $1000 + l$ robocoins.
+\end{itemize}
+
+Your skill improves only when you take on a mission whose difficulty $y$ exactly matches your current skill $s$:
+
+\begin{itemize}
+\item If $y = s$, then your skill increases by $l$.
+\item Otherwise, your skill does not change.
+\end{itemize}
+
+After each mission, you still don't know your actual skill value.
+
+You start with $10^6$ robocoins. Find a strategy (a sequence of missions) that does not exceed your budget and guarantees your skill becomes at least $n$, no matter what your initial skill was.
+
+
+\section*{Input}
+The input contains a single line with an integer $n$ ($1 \leq n \leq 250\,000$)~--- the target skill level (that is, by the end, your skill must be greater or equal to $n$).
+
+\section*{Output}
+In the first line, print a single integer $k$ ($0 \leq k \leq 10^6$)~--- the number of missions you plan to complete.
+
+Then, print $k$ lines. The $i$-th line must contain two integers $y$ and $l$ ($1 \leq y, l \leq 10^6$)~--- the difficulty and duration (in hours) of the $i$-th mission, respectively.
+
+
+
+
+\section*{Samples}
+
+In the example, your target skill is $n = 4$. You can use the following strategy:
+
+\begin{itemize}
+\item Take a mission of difficulty $y = 1$ and duration $l = 4$.
+It's your first mission, so you pay $l = 4$ robocoins.
+\item Take a mission of difficulty $y = 3$ and duration $l = 1$.
+The previous mission had difficulty $x = 1$, so since $y > x$, you pay $l + 1000 = 1001$ robocoins.
+\item Take a mission of difficulty $y = 2$ and duration $l = 1$.
+Now $x = 3$, and since $y \leq x$, you pay $l = 1$ robocoin.
+\item Take a mission of difficulty $y = 3$ and duration $l = 1$.
+Now $x = 2$, and since $y > x$, you pay $l + 1000 = 1001$ robocoins.
+\end{itemize}
+
+In total, you spend $2007$ robocoins, which is within your $10^6$-robocoin budget.
+
+Now we verify that this strategy always works:
+
+\begin{itemize}
+\item If your initial skill was $1$, after the first mission it becomes $5$.
+\item If your initial skill was $2$, after the third mission it becomes $3$, and after the fourth mission it becomes $4$.
+\item If your initial skill was $3$, after the second mission it becomes $4$.
+\item If your initial skill was $4$, it stays $4$.
+\end{itemize}
+
+So no matter what your starting skill is, you end with skill $\geq n$.
